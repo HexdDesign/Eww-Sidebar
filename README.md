@@ -9,8 +9,9 @@ A floating quickapps section below that displays Discord and Steam.
 The bottom contains an mrpis music player. 
 
 
->>EWW REPO:
+EWW REPO:
 git clone https://github.com/elkowar/eww
->>EWW DOCUMENTATION:
+
+EWW DOCUMENTATION:
 https://elkowar.github.io/eww/
 
