@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-API_KEY="89c2f47d8dfef6190a047ef5b79b6dbe"
-LAT="43.08"
-LON="-71.08"
+API_KEY=
+LAT=
+LON=
 
 weather=$(curl -sf \
   "https://api.openweathermap.org/data/2.5/weather?lat=$LAT&lon=$LON&appid=$API_KEY&units=imperial"
