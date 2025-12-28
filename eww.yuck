@@ -1,0 +1,112 @@
+;; Variables & Polls
+(defpoll current_time   :interval "1s" "date '+%I:%M'")
+(defpoll current_period :interval "1s" "date '+%p'")
+(defpoll volume_raw :interval "2s" "~/.config/eww/scripts/volume.sh")
+(defpoll net_status     :interval "5s" "~/.config/eww/scripts/network.sh")
+(defpoll mpris_status :interval "2s" "~/.config/eww/scripts/mpris-status.sh")
+(defpoll mpris_progress :interval "1s" "~/.config/eww/scripts/mpris-progress.sh")
+(defpoll weather_temp   :interval "300s" "~/.config/eww/scripts/weather.sh")
+
+;; ======================
+;; WIDGETS
+;; ======================
+(defwidget sidebar-content []
+  (box
+    :class "sidebar"
+    :orientation "vertical"
+    :spacing 4
+   
+    ;; USER PHOTO
+    (box :halign "center"
+      (image :path "/home/dizzy/.config/eww/5.png"
+             :image-width 180
+             :image-height 180
+             :class "user-avatar"))
+    
+    ;; TIME/WEATHER | VOL/NET
+    (box :orientation "h"
+         :spacing 8
+      ;; LEFT COLUMN
+      (box :orientation "v"
+           :spacing 8
+           :hexpand false
+        (box :class "time-box"
+             :orientation "h"
+             :spacing 8
+          (label :class "time" :text current_time)
+          (label :class "period" :text current_period))
+        (box :class "weather-card"
+             :orientation "v"
+             :spacing 8
+          (label :class "weather-icon" :text "☁")
+          (label :class "weather-temp" :text weather_temp)))
+      
+      ;; RIGHT COLUMN
+      (box :orientation "v"
+           :spacing 8
+           :hexpand true
+        (box :class "sys-card vol"
+             :orientation "v"
+             :spacing 4
+          (label :class "sys-label" :text "VOL")
+          (box :class "volume-bar-container"
+            (box :class "volume-fill"
+                 :style "min-width: ${volume_raw}%;")))
+        (box :class "sys-card net"
+             :orientation "v"
+             :spacing 4
+          (label :class "sys-label" :text "NET")
+          (label :class "net-status" :text net_status))))
+    
+    ;; QUICKAPPS
+    (box :class "quickapps"
+         :orientation "h"
+         :spacing 10
+         :halign "center"
+      (button :class "quickapp-btn"
+              :onclick "discord"
+        (image :path "/home/dizzy/.config/eww/icons/discord.svg"
+               :image-width 45
+               :image-height 45))
+      (button :class "quickapp-btn"
+              :onclick "steam"
+        (image :path "/home/dizzy/.config/eww/icons/steam.svg"
+               :image-width 45
+               :image-height 45)))
+    
+    ;; MUSIC
+    (box :class "music-section"
+         :orientation "v"
+         :spacing 8
+         :hexpand false
+      (label :class "music-status"
+             :text mpris_status
+             :halign "center"
+             :limit-width 30
+             :wrap false)
+      (box :class "music-controls"
+           :spacing 8
+           :halign "center"
+           :hexpand false
+           :style "min-width: 200px; max-width: 200px;"
+        (button :class "music-btn" :onclick "playerctl previous"
+          (label :text "⏮"))
+        (button :class "music-btn" :onclick "playerctl play-pause"
+          (label :text "▶"))
+        (button :class "music-btn" :onclick "playerctl next"
+          (label :text "⏭"))))))
+
+;; ======================
+;; WINDOW
+;; ======================
+(defwindow sidebar
+  :geometry (geometry
+    :x "2"
+    :y "30"
+    :width "340px"
+    :height "850px")
+  :anchor "left top"
+  :exclusive true
+  :stacking "fg"
+  :focusable false
+  (sidebar-content))
