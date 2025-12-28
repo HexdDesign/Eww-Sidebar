@@ -15,3 +15,4 @@ git clone https://github.com/elkowar/eww
 EWW DOCUMENTATION:
 https://elkowar.github.io/eww/
 
+![Eww Blue](2025-12-28_09-06.png)
