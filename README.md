@@ -11,7 +11,7 @@ The bottom contains an mrpis music player.
 Eww Quickapp Icons included in repo, steam.svg & discord.svg
 
 
-## EWW REPO:
+**EWW REPO:**
 git clone https://github.com/elkowar/eww
 
 EWW DOCUMENTATION:
