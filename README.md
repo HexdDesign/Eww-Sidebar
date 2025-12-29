@@ -43,4 +43,7 @@ Keep in mind that the current layout is using .svg images for the quickapps.
 
 Your own music player can be configured as well, but Mpris pulls from any audio source!
 
-Additionally, you can change the taskbar from Polybar to another Eww, or whatever you would like to toggle it open with. 
+Additionally, you can change the taskbar from Polybar to another Eww, or whatever you would like to toggle it open with !
+
+![Eww Blue](2025-12-28_13-29.png)
+
