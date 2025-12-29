@@ -12,9 +12,9 @@ Eww Quickapp Icons included in repo, steam.svg & discord.svg
 
 
 **EWW REPO:**
-[Repo](git clone https://github.com/elkowar/eww)
+[Eww Repo Git Clone](https://github.com/elkowar/eww)
 
 **EWW DOCUMENTATION:**
-[Documentation](https://elkowar.github.io/eww/)
+[Official Documentation](https://elkowar.github.io/eww/)
 
 ![Eww Blue](2025-12-28_09-06.png)
