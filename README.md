@@ -37,4 +37,10 @@ _Required_
 
 :light_blue_heart: Polybar
 
-:blue_heart: OR - change out Discord & Steam to your own desired quickapps, and configure your own music player. Keep in mind that the current layout is using .svg images for the quickapps. Additionally, you can change the taskbar from Polybar to another Eww, or whatever you would like to toggle it open with. 
+:blue_heart: OR - change out Discord & Steam to your own desired quickapps. 
+
+Keep in mind that the current layout is using .svg images for the quickapps.
+
+Your own music player can be configured as well, but Mpris pulls from any audio source!
+
+Additionally, you can change the taskbar from Polybar to another Eww, or whatever you would like to toggle it open with. 
