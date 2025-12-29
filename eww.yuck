@@ -7,9 +7,13 @@
 (defpoll mpris_progress :interval "1s" "~/.config/eww/scripts/mpris-progress.sh")
 (defpoll weather_temp   :interval "300s" "~/.config/eww/scripts/weather.sh")
 
+;; Variable to track dragging volume bar
+(defvar volume_dragging false)
+
 ;; ======================
 ;; WIDGETS
 ;; ======================
+
 (defwidget sidebar-content []
   (box
     :class "sidebar"
@@ -45,13 +49,19 @@
       (box :orientation "v"
            :spacing 8
            :hexpand true
+        ;; INTERACTIVE VOLUME CARD
         (box :class "sys-card vol"
              :orientation "v"
              :spacing 4
           (label :class "sys-label" :text "VOL")
-          (box :class "volume-bar-container"
-            (box :class "volume-fill"
-                 :style "min-width: ${volume_raw}%;")))
+          (eventbox :onclick "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+            (box :class "volume-bar-container"
+              (scale :class "volume-slider"
+                     :value volume_raw
+                     :min 0
+                     :max 100
+                     :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%"))))
+        
         (box :class "sys-card net"
              :orientation "v"
              :spacing 4
@@ -64,12 +74,12 @@
          :spacing 10
          :halign "center"
       (button :class "quickapp-btn"
-              :onclick "gtk-launch discord &" ; "/usr/bin/discord"
+              :onclick "gtk-launch discord &"
         (image :path "/home/dizzy/.config/eww/icons/discord.svg"
                :image-width 45
                :image-height 45))
       (button :class "quickapp-btn"
-              :onclick "gtk-launch steam &" ; "/usr/bin/steam"
+              :onclick "gtk-launch steam &"
         (image :path "/home/dizzy/.config/eww/icons/steam.svg"
                :image-width 45
                :image-height 45)))
@@ -104,9 +114,11 @@
     :x "2"
     :y "28"
     :width "340px"
-    :height "850px")
+    :height "600px")
+  :monitor 0;
   :anchor "left top"
   :exclusive true
   :stacking "fg"
   :focusable false
   (sidebar-content))
+
