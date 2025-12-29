@@ -23,3 +23,18 @@ Eww Quickapp Icons included in repo, steam.svg & discord.svg
 [Official Documentation](https://elkowar.github.io/eww/)
 
 ![Eww Blue](2025-12-28_09-06.png)
+
+
+_Required_
+
+:light_blue_heart: Eww
+
+:light_blue_heart: Steam
+
+:light_blue_heart: Discord
+
+:light_blue_heart: Mpris Music Player
+
+:light_blue_heart: Polybar
+
+:blue_heart: OR - change out Discord & Steam to your own desired quickapps, and configure your own music player. Keep in mind that the current layout is using .svg images for the quickapps. Additionally, you can change the taskbar from Polybar to another Eww, or whatever you would like to toggle it open with. 
