@@ -1,5 +1,12 @@
 # [[ DOTS BY DIZZY ]]
 
+ ⡤⠒⢤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡤⠒⢤
+ ⢣⡀⠀⠉⠲⢤⣀⡀⠀⠀⠀⠀⠀⠀⢀⣀⡤⠖⠉⠀⢀⡜
+ ⢸⡉⠒⠄⠀⠀⠀⢉⡙⢢⠀⠀⡔⢋⡉⠀⠀⠀⠠⠒⢉⡇
+⠀ ⠉⢖⠒⠀⠀⠀⣇⠀⣸⠀⠀⣇⠀⣸⠀⠀⠀⠒⡲⠉⠀
+⠀⠀ ⠀⠉⠙⠫⠤⠚⠉⠀⠀⠀⠀⠉⠓⠤⠝⠋⠉           ✧ ˚₊ ‧✩ ੈ  Dots by Dizzy  ੈ✩‧₊˚ ✧
+                              ╭──╯
+
 Eww Sidebar [ with a blue theme ]
 
 [Designed to be toggled open/closed from my Polybar]
