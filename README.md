@@ -49,3 +49,5 @@ Additionally, you can change the taskbar from Polybar to another Eww, or whateve
 
 ![Eww Blue](2025-12-28_13-29.png)
 
+[ I am using Linux Archcraft & i3wm ]
+
