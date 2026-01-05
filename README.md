@@ -37,6 +37,8 @@ _Required_
 
 :light_blue_heart: Polybar
 
+:light_blue_heart: Nerd Fonts - Jetbrains Mono & SF Pro Display Font
+
 :blue_heart: OR - change out Discord & Steam to your own desired quickapps. 
 
 Keep in mind that the current layout is using .svg images for the quickapps.
