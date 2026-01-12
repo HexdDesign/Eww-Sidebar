@@ -1,13 +1,18 @@
-;; Variables & Polls
-(defpoll current_time   :interval "1s" "date '+%I:%M'")
-(defpoll current_period :interval "1s" "date '+%p'")
-(defpoll volume_raw :interval "2s" "~/.config/eww/scripts/volume.sh")
-(defpoll net_status     :interval "5s" "~/.config/eww/scripts/network.sh")
-(defpoll mpris_status :interval "2s" "~/.config/eww/scripts/mpris-status.sh")
-(defpoll mpris_progress :interval "1s" "~/.config/eww/scripts/mpris-progress.sh")
-(defpoll weather_temp   :interval "300s" "~/.config/eww/scripts/weather.sh")
+;; ======================
+;; VARIABLES & POLLS
+;; ======================
 
-;; Variable to track dragging volume bar
+(defpoll current_time        :interval "1s"   "date '+%I:%M'")
+(defpoll current_period     :interval "1s"   "date '+%p'")
+(defpoll volume_raw         :interval "2s"   "~/.config/eww/scripts/volume.sh")
+(defpoll net_status         :interval "5s"   "~/.config/eww/scripts/network.sh")
+(defpoll mpris_status       :interval "2s"   "~/.config/eww/scripts/mpris-status.sh")
+(defpoll mpris_progress     :interval "1s"   "~/.config/eww/scripts/mpris-progress.sh")
+(defpoll weather_temp       :interval "300s" "~/.config/eww/scripts/weather.sh")
+
+(defpoll bluetooth_status :interval "2s"
+  "export $(dbus-launch); bluetoothctl show | grep Powered | awk '{print $2}' | sed 's/yes/ON/; s/no/OFF/'")
+
 (defvar volume_dragging false)
 
 ;; ======================
@@ -18,87 +23,122 @@
   (box
     :class "sidebar"
     :orientation "vertical"
-    :spacing 4
-   
-    ;; USER PHOTO
+    :spacing 8
+
+    ;; ======================
+    ;; USER AVATAR
+    ;; ======================
     (box :halign "center"
-      (image :path "/home/dizzy/.config/eww/5.png"
-             :image-width 180
-             :image-height 180
-             :class "user-avatar"))
-    
-    ;; TIME/WEATHER | VOL/NET
-    (box :orientation "h"
-         :spacing 8
+      (image
+        :path "/home/dizzy/.config/eww/Rimaru.png"
+        :image-width 180
+        :image-height 180
+        :class "user-avatar"))
+
+    ;; ======================
+    ;; TOP GRID (BT / WEATHER | VOL / NET)
+    ;; ======================
+    (box
+      :orientation "h"
+      :spacing 8
+
       ;; LEFT COLUMN
-      (box :orientation "v"
-           :spacing 8
-           :hexpand false
-        (box :class "time-box"
-             :orientation "h"
-             :spacing 8
-          (label :class "time" :text current_time)
-          (label :class "period" :text current_period))
-        (box :class "weather-card"
-             :orientation "v"
-             :spacing 8
+      (box
+        :orientation "v"
+        :spacing 8
+
+        ;; BLUETOOTH
+        (box
+          :class "bt-card"
+          :orientation "v"
+          :spacing 6
+          (eventbox
+            :onclick "sudo /usr/local/bin/bluetooth-toggle.sh"
+            (label :class "bt-label" :text "BLUETOOTH"))
+          (label :class "bt-status" :text bluetooth_status))
+
+        ;; WEATHER
+        (box
+          :class "weather-card"
+          :orientation "v"
+          :spacing 6
           (label :class "weather-icon" :text "☁")
           (label :class "weather-temp" :text weather_temp)))
-      
+
       ;; RIGHT COLUMN
-      (box :orientation "v"
-           :spacing 8
-           :hexpand true
-        ;; INTERACTIVE VOLUME CARD
-        (box :class "sys-card vol"
-             :orientation "v"
-             :spacing 4
+      (box
+        :orientation "v"
+        :spacing 8
+        :hexpand true
+
+        ;; VOLUME
+        (box
+          :class "sys-card vol"
+          :orientation "v"
+          :spacing 4
           (label :class "sys-label" :text "VOL")
-          (eventbox :onclick "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-            (box :class "volume-bar-container"
-              (scale :class "volume-slider"
-                     :value volume_raw
-                     :min 0
-                     :max 100
-                     :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%"))))
-        
-        (box :class "sys-card net"
-             :orientation "v"
-             :spacing 4
+          (eventbox
+            :onclick "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+            (scale
+              :class "volume-slider"
+              :value volume_raw
+              :min 0
+              :max 100
+              :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%")))
+
+        ;; NETWORK
+        (box
+          :class "sys-card net"
+          :orientation "v"
+          :spacing 4
           (label :class "sys-label" :text "NET")
           (label :class "net-status" :text net_status))))
-    
-    ;; QUICKAPPS
-    (box :class "quickapps"
-         :orientation "h"
-         :spacing 10
-         :halign "center"
-      (button :class "quickapp-btn"
-              :onclick "gtk-launch discord &"
-        (image :path "/home/dizzy/.config/eww/icons/discord.svg"
-               :image-width 45
-               :image-height 45))
-      (button :class "quickapp-btn"
-              :onclick "gtk-launch steam &"
-        (image :path "/home/dizzy/.config/eww/icons/steam.svg"
-               :image-width 45
-               :image-height 45)))
-    
-    ;; MUSIC
-    (box :class "music-section"
-         :orientation "v"
-         :spacing 8
-         :hexpand false
-      (label :class "music-status"
-             :text mpris_status
-             :halign "center"
-             :limit-width 30
-             :wrap false)
-      (box :class "music-controls"
-           :spacing 8
-           :halign "center"
-           :hexpand false
-           :style "min-width: 200px; max-width: 200px;"
+
+    ;; ======================
+    ;; QUICK APPS
+    ;; ======================
+    (box
+      :class "quickapps"
+      :orientation "h"
+      :spacing 10
+      :halign "center"
+
+      (button
+        :class "quickapp-btn"
+        :onclick "gtk-launch discord &"
+        (image
+          :path "/home/dizzy/.config/eww/icons/Dcord3.svg"
+          :image-width 40
+          :image-height 40))
+
+      (button
+        :class "quickapp-btn"
+        :onclick "gtk-launch steam &"
+        (image
+          :path "/home/dizzy/.config/eww/icons/Stem3.svg"
+          :image-width 40
+          :image-height 40)))
+
+    ;; ======================
+    ;; MUSIC PLAYER
+    ;; ======================
+    (box
+      :class "music-section"
+      :orientation "v"
+      :spacing 8
+
+      (label
+        :class "music-status"
+        :text mpris_status
+        :halign "center"
+        :limit-width 32
+        :wrap false)
+
+      (box
+        :class "music-controls"
+        :spacing 8
+        :halign "center"
+
         (button :class "music-btn" :onclick "playerctl previous"
           (label :text "⏮"))
         (button :class "music-btn" :onclick "playerctl play-pause"
@@ -109,16 +149,17 @@
 ;; ======================
 ;; WINDOW
 ;; ======================
-(defwindow sidebar
-  :geometry (geometry
-    :x "2"
-    :y "28"
-    :width "340px"
-    :height "600px")
-  :monitor 0;
-  :anchor "left top"
-  :exclusive true
-  :stacking "fg"
-  :focusable false
-  (sidebar-content))
 
+(defwindow sidebar
+  :monitor 0
+  :anchor "left top"
+  :exclusive false
+  :stacking "bg"
+  :focusable false
+  :geometry
+    (geometry
+      :x "2"
+      :y "28"
+      :width "340px"
+      :height "600px")
+  (sidebar-content))
