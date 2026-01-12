@@ -7,7 +7,7 @@ Eww Sidebar [ with a blue theme ]
 Contains a user image at the top, and a grid layout of cards
 displaying [from left to right]
 
-Time, Volume, Weather, and Network. 
+Bluetooth, Volume, Weather, and Network. 
 
 A floating quickapps section below that displays Discord and Steam.
 
@@ -47,7 +47,7 @@ Your own music player can be configured as well, but Mpris pulls from any audio 
 
 Additionally, you can change the taskbar from Polybar to another Eww, or whatever you would like to toggle it open with !
 
-![Eww Blue](2025-12-28_13-29.png)
+![Eww Blue](2026-01-11_10-17.png)
 
 [ I am using Linux Archcraft & i3wm ]
 
