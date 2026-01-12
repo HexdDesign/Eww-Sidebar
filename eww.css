@@ -5,36 +5,33 @@
   font-family: "JetBrains Mono", "SF Pro Display", sans-serif;
 }
 
-label {
+label, button, box {
   background: none;
   border: none;
   color: inherit;
   font-family: "JetBrains Mono", "SF Pro Display", sans-serif;
 }
 
-button {
-  background: none;
-  border: none;
-  font-family: "JetBrains Mono", "SF Pro Display", sans-serif;
-}
-
-button, label, box {
-  font-family: "JetBrains Mono", "SF Pro Display", sans-serif;
+window {
+  background-color: rgba(0, 0, 0, 0);
 }
 
 /* ======================
    SIDEBAR CONTAINER
    ====================== */
 .sidebar {
-  background: linear-gradient(135deg, 
-    rgba(20, 40, 80, 0.85) 0%,
-    rgba(30, 60, 120, 0.75) 50%,
-    rgba(15, 35, 70, 0.85) 100%);
-  border: 1px solid rgba(100, 150, 255, 0.3);
+  background: linear-gradient(
+    180deg,
+    rgba(14, 70, 182, 0.9) 0%,
+    rgba(31, 45, 103, 0.9) 60%,
+    rgba(10, 17, 36, 0.9) 100%
+  );
+  border: 1px solid rgba(43, 92, 143, 0.55);
   border-radius: 16px;
-  padding: 12px; 
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
-              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  padding: 12px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 /* ======================
@@ -42,169 +39,180 @@ button, label, box {
    ====================== */
 .user-avatar {
   border-radius: 10px;
-  margin-top: -8px; 
+  margin-top: -30px;
   margin-bottom: -30px;
-  margin-top: -30px; 
 }
 
 /* ======================
    TIME BOX
    ====================== */
 .time-box {
-  background: linear-gradient(135deg, 
-    rgba(50, 100, 200, 0.3) 0%,
-    rgba(30, 80, 180, 0.2) 100%);
-  border: 1px solid rgba(100, 150, 255, 0.25);
+  background: linear-gradient(
+    135deg,
+    rgba(30, 77, 122, 0.45) 0%,
+    rgba(10, 28, 51, 0.35) 100%
+  );
+  border: 1px solid rgba(43, 92, 143, 0.45);
   border-radius: 16px;
-  padding: 4px 8px; 
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2),
-              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  padding: 4px 8px;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .time {
   font-size: 18px;
   font-weight: 700;
-  color: #e0f0ff;
+  color: #EAF6FF;
   margin-left: 2px;
 }
 
 .period {
   font-size: 10px;
   font-weight: 500;
-  color: #a0d0ff;
-  margin-left: 0px;
-  margin-right: 0px; 
+  color: #9FCDEB;
   margin-top: 6px;
-  opacity: 0.8;
+  opacity: 0.75;
 }
 
 /* ======================
    WEATHER CARD
    ====================== */
 .weather-card {
-  background: linear-gradient(135deg, 
-    rgba(40, 90, 180, 0.3) 0%,
-    rgba(25, 70, 160, 0.2) 100%);
-  border: 1px solid rgba(100, 150, 255, 0.25);
+  background: linear-gradient(
+    135deg,
+    rgba(30, 77, 122, 0.45) 0%,
+    rgba(10, 28, 51, 0.35) 100%
+  );
+  border: 1px solid rgba(43, 92, 143, 0.45);
   border-radius: 16px;
-  padding: 8px; 
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2),
-              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  padding: 8px;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   min-width: 120px;
 }
 
 .weather-icon {
-  font-size: 30px; 
+  font-size: 30px;
+  color: #6FE8FF;
 }
 
 .weather-temp {
-  font-size: 14px; 
+  font-size: 14px;
   font-weight: 600;
-  color: #d0e8ff;
+  color: #EAF6FF;
 }
 
 /* ======================
-   SYSTEM CARDS (VOL/NET)
+   SYSTEM CARDS (VOL / NET / BT)
    ====================== */
-.sys-card {
-  background: linear-gradient(135deg, 
-    rgba(45, 95, 190, 0.3) 0%,
-    rgba(30, 75, 165, 0.2) 100%);
-  border: 1px solid rgba(100, 150, 255, 0.25);
+.sys-card,
+.bt-card {
+  background: linear-gradient(
+    135deg,
+    rgba(30, 77, 122, 0.45) 0%,
+    rgba(10, 28, 51, 0.35) 100%
+  );
+  border: 1px solid rgba(43, 92, 143, 0.45);
   border-radius: 16px;
-  padding: 6px 8px; 
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2),
-              inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  min-height: 50px; 
+  padding: 6px 8px;
+  min-height: 50px;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-.sys-label {
+.sys-label,
+.bt-label {
   font-size: 10px;
   font-weight: 600;
-  color: #a0d0ff;
+  color: #9FCDEB;
   letter-spacing: 1px;
   opacity: 0.7;
   margin-bottom: 4px;
+}
+
+.net-status,
+.bt-status {
+  font-size: 12px;
+  font-weight: 500;
+  color: #EAF6FF;
+  margin-top: 4px;
 }
 
 /* ======================
    VOLUME BAR
    ====================== */
 .volume-bar-container {
-  background: rgba(20, 40, 80, 0.5);
+  background: rgba(10, 28, 51, 0.55);
   border-radius: 8px;
   min-height: 2px;
-  border: 1px solid rgba(100, 150, 255, 0.2);
+  border: 1px solid rgba(43, 92, 143, 0.35);
 }
 
 .volume-fill {
-  background: linear-gradient(90deg, 
-    #4090ff 0%,
-    #60b0ff 50%,
-    #80d0ff 100%);
+  background: linear-gradient(
+    90deg,
+    #1E4D7A 0%,
+    #6FE8FF 50%,
+    #7EC8FF 100%
+  );
   min-height: 4px;
   border-radius: 4px;
-  box-shadow: 0 0 12px rgba(60, 120, 255, 0.5),
-              inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 0 12px rgba(111, 232, 255, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
   transition: min-width 0.2s ease;
-}
-
-.net-status {
-  font-size: 12px;
-  font-weight: 500;
-  color: #d0e8ff;
-  margin-top: 4px;
 }
 
 /* ======================
    QUICKAPPS
    ====================== */
 .quickapps {
-  padding: 3px;
-  margin-top: -20px; 
-  margin-bottom: -15px; 
+  padding: 24px;
+  margin-top: -20px;
+  margin-bottom: -15px;
 }
 
 .quickapp-btn {
-  background-color: transparent;
-  border: none;
   border-radius: 12px;
-  padding: 2px 20px; 
-  min-width: 45px; 
-  min-height: 45px; 
-  margin-top: 0px;
+  padding: 4px 32px;
+  min-width: 30px;
+  min-height: 30px;
 }
 
 .quickapp-btn:hover {
-  background-color: rgba(60, 120, 220, 0.2);
+  background-color: rgba(111, 232, 255, 0.1);
 }
 
 .quickapp-btn:active {
-  background-color: rgba(40, 100, 200, 0.3);
+  background-color: rgba(30, 77, 122, 0.35);
 }
-
 
 /* ======================
    MUSIC SECTION
    ====================== */
 .music-section {
-  background: linear-gradient(135deg, 
-    rgba(40, 90, 180, 0.3) 0%,
-    rgba(25, 70, 160, 0.2) 100%);
-  border: 1px solid rgba(100, 150, 255, 0.25);
+  background: linear-gradient(
+    135deg,
+    rgba(30, 77, 122, 0.45) 0%,
+    rgba(10, 28, 51, 0.35) 100%
+  );
+  border: 1px solid rgba(43, 92, 143, 0.45);
   border-radius: 16px;
-  padding: 8px; 
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2),
-              inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  margin-top: -8px; 
+  padding: 8px;
+  margin-top: -8px;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .music-status {
   font-size: 12px;
   font-weight: 500;
-  color: #d0e8ff;
+  color: #EAF6FF;
   margin-bottom: 5px;
-  margin-top: 0px; 
 }
 
 .music-controls {
@@ -212,30 +220,34 @@ button, label, box {
 }
 
 .music-btn {
-  background: linear-gradient(135deg, 
-    rgba(50, 100, 200, 0.35) 0%,
-    rgba(30, 80, 180, 0.25) 100%);
-  border: 1px solid rgba(100, 150, 255, 0.3);
+  background: linear-gradient(
+    135deg,
+    rgba(30, 77, 122, 0.55) 0%,
+    rgba(10, 28, 51, 0.45) 100%
+  );
+  border: 1px solid rgba(43, 92, 143, 0.55);
   border-radius: 12px;
   padding: 10px 20px;
   font-size: 16px;
-  min-width: 30px;
-  min-height: 20px;
-  color: #e0f0ff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2),
-              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  color: #EAF6FF;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transition: all 0.3s ease;
 }
 
 .music-btn:hover {
-  background: linear-gradient(135deg, 
-    rgba(60, 120, 220, 0.45) 0%,
-    rgba(40, 100, 200, 0.35) 100%);
-  border-color: rgba(120, 170, 255, 0.5);
-  box-shadow: 0 6px 16px rgba(60, 120, 255, 0.3),
-              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(30, 77, 122, 0.75) 0%,
+    rgba(10, 28, 51, 0.6) 100%
+  );
+  border-color: rgba(111, 232, 255, 0.5);
+  box-shadow:
+    0 6px 16px rgba(111, 232, 255, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .music-btn:active {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
